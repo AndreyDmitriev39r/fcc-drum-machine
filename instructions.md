@@ -1,8 +1,8 @@
-## Build a Markdown Previewer
+## Build a Drum Machine
 
 Objective - to build an app similar to this:
 
-[Example on codepen](https://codepen.io/freeCodeCamp/full/MJyNMd)
+[Example](https://drum-machine.freecodecamp.rocks/)
 
 ## Requirements
 
