@@ -1,3 +1,4 @@
+import Heading from "./components/Heading";
 import Display from "./components/Display";
 import DrumPad from "./components/DrumPad";
 
@@ -16,8 +17,11 @@ function App() {
 
   return (
     <>
+      <Heading />
       <Display />
-      {drumPads}
+      <div id="drumpad-container">
+        {drumPads}
+      </div>      
     </>
   );
 }
