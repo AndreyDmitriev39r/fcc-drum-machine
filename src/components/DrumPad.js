@@ -1,8 +1,9 @@
-function Drumpad({id, text, audioSource}) {
+function Drumpad({id, text, audioSource, clickHandler}) {
   return (
     <button
       id={id}
       className="drum-pad"
+      onClick={clickHandler}
     >
       {text}
       <audio

@@ -1,6 +1,8 @@
-function Display() {
+function Display({text}) {
   return (
-    <h1 id='display'>Display</h1>
+    <div id="display">
+      <h1>{text}</h1>
+    </div>    
   );
 }
 

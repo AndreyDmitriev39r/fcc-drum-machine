@@ -38,13 +38,20 @@ body {
   text-shadow: 1px 3px 3px maroon;
 }
 
-#display {
-  padding: 7.5px;
+#display {  
   color: wheat;
-  font-size: 2rem;
   letter-spacing: 1.15px;
   text-shadow: 0.7px 2px 2px wheat;
   margin-bottom: 1.4rem;
+  width: 80%;
+  height: 51px;
+  background-color: brown;
+  border-radius: 5px;
+}
+
+#display > h1 {
+  padding: 7.5px;
+  font-size: 2rem;
 }
 
 #drumpad-container { 
