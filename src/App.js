@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Heading from "./components/Heading";
 import Display from "./components/Display";
@@ -12,9 +12,28 @@ function App() {
 
   const [displayText, setDisplaytext] = useState('Click da buttons!');
 
-  const handleClick = (event) => {
+  const handleClick = (event) => {    
+    event.target.lastChild.play();
     setDisplaytext(event.target.id);
   }
+
+  const handleKeyPress = (event) => {
+
+    const triggeredDrumPad = drumPadsData
+      .filter(drumPad => drumPad.text === event.key.toUpperCase());
+    
+    if (!triggeredDrumPad.length) return;
+
+    document.getElementById(triggeredDrumPad[0].text).play();
+
+    setDisplaytext(triggeredDrumPad[0].id);
+  }
+
+  // side effects
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress);
+  }, []);
 
   // rendering
 
