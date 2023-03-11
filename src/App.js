@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 import Heading from "./components/Heading";
 import Display from "./components/Display";
@@ -8,11 +8,17 @@ import drumPadsData from "./data";
 
 function App() {
 
+  // ref
+
+  const refsCollection = Array(drumPadsData.length).fill(useRef(null));
+
+  
+
   // state
 
   const [displayText, setDisplaytext] = useState('Click da buttons!');
 
-  const handleClick = (event) => {    
+  const handleClick = (event, ref) => {    
     event.target.lastChild.play();
     setDisplaytext(event.target.id);
   }
@@ -37,13 +43,14 @@ function App() {
 
   // rendering
 
-  const drumPads = drumPadsData.map((drumPad) =>
+  const drumPads = drumPadsData.map((drumPad, index) =>
     <DrumPad
       id={drumPad.id}
       text={drumPad.text}
       audioSource={drumPad.source}
       key={drumPad.id}
       clickHandler={handleClick}
+      ref={refsCollection[index]}
     />
   )
 
