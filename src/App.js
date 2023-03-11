@@ -10,30 +10,15 @@ function App() {
 
   // state
 
-  const [displayText, setDisplaytext] = useState('Click da buttons!');
+  const [displayText, setDisplaytext] = useState('Click da buttons!');  
 
-  const handleClick = (event) => {    
-    event.target.lastChild.play();
+  const changeDisplayTextOnClick = (event) => {    
     setDisplaytext(event.target.id);
   }
 
-  const handleKeyPress = (event) => {
-
-    const triggeredDrumPad = drumPadsData
-      .filter(drumPad => drumPad.text === event.key.toUpperCase());
-    
-    if (!triggeredDrumPad.length) return;
-
-    document.getElementById(triggeredDrumPad[0].text).play();
-
-    setDisplaytext(triggeredDrumPad[0].id);
+  const changeDisplayTextOnKeyDown = (id) => {
+    setDisplaytext(id);
   }
-
-  // side effects
-
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyPress);
-  }, []);
 
   // rendering
 
@@ -43,7 +28,8 @@ function App() {
       text={drumPad.text}
       audioSource={drumPad.source}
       key={drumPad.id}
-      clickHandler={handleClick}
+      changeDisplayTextOnClick={changeDisplayTextOnClick}
+      changeDisplayTextOnKeyDown={changeDisplayTextOnKeyDown}
     />
   )
 
